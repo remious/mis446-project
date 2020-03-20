@@ -1,0 +1,221 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+div.fixed {
+  position: fixed-center;
+  width: 800px;
+  border: 3px ;
+}
+
+
+ * {
+      box-sizing: border-box;
+      }
+      body {
+      font-family: Roboto, Helvetica, sans-serif;
+      }
+      /* Fix the button on the left side of the page */
+      .open-btn {
+  
+      justify-content: center;
+      }
+      /* Style and fix the button on the page */
+      .open-button {
+      background-color: #1c87c9;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      opacity: 0.8;
+      position: fixed-center;
+      }
+      /* Position the Popup form */
+      .login-popup {
+      position: fixed-center;
+      text-align: center;
+      width: 100%;
+      }
+      /* Hide the Popup form */
+      .form-popup {
+      display: none;
+      position: fixed-center;
+     
+      transform: translate(-45%,5%);
+      border: 2px solid #666;
+      z-index: 9;
+      }
+      /* Styles for the form container */
+      .form-container {
+      max-width: 300px;
+      padding: 20px;
+      background-color: blue;
+      }
+      /* Full-width for input fields */
+      .form-container input[type=text], .form-container input[type=password] {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0 22px 0;
+      border: none;
+      background: #eee;
+      }
+      /* When the inputs get focus, do something */
+      .form-container input[type=text]:focus, .form-container input[type=password]:focus {
+      background-color: #cbd5db;
+      outline: none;
+      }
+      /* Style submit/login button */
+      .form-container .btn {
+      background-color: #cbd5db;
+      color: blue;
+      padding: 12px 20px;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      margin-bottom:10px;
+      opacity: 0.8;
+      }
+      /* Style cancel button */
+      .form-container .cancel {
+      background-color: #cbd5db;
+      }
+      /* Hover effects for buttons */
+      .form-container .btn:hover, .open-button:hover {
+      opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+  	<br><br><br>
+  	<div class="fixed-center">
+<div class="container">
+    <form action="">
+        <div class="col-lg-9">
+        <label for="order"><h2 style= "color:#EAEAEA">Inventory</h2></label>
+            <div class="row">
+                <textarea readonly name="" class="form-control" id=""rows="10"></textarea>
+            </div>
+        </div>
+       
+    </form>
+
+<br>
+   
+    <div class="open-btn">
+      <button class="open-button" onclick="openForm()"><strong>Add New</strong></button>
+    </div>
+    <div class="login-popup">
+      <div class="form-popup" id="popupForm">
+        <form action="/action_page.php" class="form-container">
+          <h2>Enter Inventory Information</h2>
+          <label for="email">
+          <strong>Item Name</strong>
+          </label>
+          <input type="text" id="item-name" placeholder="Item Name" name="item-name" required>
+          <label for="psw">
+          <strong>Amount</strong>
+          </label>
+          <input type="text" id="amount" placeholder="Amount" name="amount" required>
+          <button type="submit" class="btn">Enter</button>
+          <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
+        </form>
+      </div>
+
+    </div>
+
+
+
+
+    <script>
+      function openForm() {
+        document.getElementById("popupForm").style.display="block";
+      }
+      
+      function closeForm() {
+        document.getElementById("popupForm").style.display="none";
+      }
+    </script>
+
+
+
+
+		<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<link rel="stylesheet" type="text/css" href="{% static 'mis446/main.css' %}">
+
+<link rel="stylesheet" type="text/css" href="{% static 'mis446/home.css' %}">
+
+<link rel="stylesheet" type="text/css" href="{% static 'mis446/popup.css' %}">
+
+{% block content %}
+
+
+<div id="container">  
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+</head>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+
+<br>
+
+
+
+   
+
+
+	
+ <br><br>
+
+
+
+</div>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>  
+<script type="text/javascript" src="js/keyboard.js"></script>
+{% endblock content %}
+
+
+	<title>ACRMS - Home</title>	
+</head>
+  <body style = "Background-image: url('https://images.assetsdelivery.com/compings_v2/spaxia/spaxia1703/spaxia170300094.jpg');">
+
+
+	<header class="site-header">
+      <nav class="navbar navbar-dark bg-steel fixed-top">
+        <div class="container">
+          <a class="navbar-brand mr-4" href="{% url 'ACRMS-Home' %}">ACRMS</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+             <span class="navbar-toggler-icon"></span>
+           </button>
+              <div  class="collapse navbar-collapse" id="navbarToggle">
+              <div class="navbar-nav mr-right">
+             <a class="nav-item nav-link" href="{% url 'ACRMS-Home' %}">Home</a>
+              <a class="nav-item nav-link" href="{% url 'ACRMS-Home' %}">User Manual</a>
+              <a class="nav-item nav-link" href="{% url 'ACRMS-Login' %}">Logout</a>
+             </div>
+        <!-- Navbar Right Side -->
+             
+             </a>
+            </div>
+           </div>
+       </div>
+   </nav>
+  </header>
+
+	
+	<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

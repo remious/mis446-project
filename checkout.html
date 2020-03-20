@@ -1,0 +1,40 @@
+<title>Checkout</title>
+<center>
+	<!--Order details label and text area-->
+<label for="order"><h2 style= "color:#EAEAEA"><u>Order Details</u></h2></label>
+<br>
+<textarea readonly class="fixed-right" id="order" name="order" rows="10" cols="80">
+
+</textarea>
+<br>
+<!--Order total label and text area-->
+<label for="order-total"><h2 style= "color:#EAEAEA">Order Total:</h2></label>
+<br>
+<textarea readonly class="fixed-right" id="order-total" name="order-total" rows="1" cols="35">
+
+</textarea>
+<br>
+<!--Amount tendered label and text area-->
+	<label for="Amount-tendered"><h2 style= "color:#EAEAEA">Amount Tendered:</h2></label>
+
+<br>
+<textarea class="fixed-right" id="Amount-tendered" name="Amount-tendered" rows="1" cols="35">
+</textarea>
+<br>
+
+</textarea>
+<br>
+<br>
+<div class="form-group">
+
+<!--
+<input type="button" name="edit-order" class="btn btn-info btn-md" value="Edit Order" onclick="history.back()">
+-->
+<!--Submit button-->
+<input type="submit" name="submit-order" class="btn btn-info btn-md" value="Submit Order" onclick="./home/">
+</div>
+
+</center>
+
+{% extends "mis446/Base.html" %}
+ 

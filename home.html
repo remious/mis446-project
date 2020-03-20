@@ -1,0 +1,109 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+		<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<link rel="stylesheet" type="text/css" href="{% static 'mis446/main.css' %}">
+
+<link rel="stylesheet" type="text/css" href="{% static 'mis446/home.css' %}">
+
+{% block content %}
+
+
+<div id="container">  
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+</head>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+<!-- Search form -->
+<div class="fixed-cnter">
+<input class="form-control" type="text" placeholder="Search Café Menu..." aria-label="Search Cafe Menu">
+<input type="submit" name="Search Cafe Menu" class="btn btn-info btn-md" value="Search">
+</div>
+<br>
+
+<!--menu items-->
+ <ul id="keyboard"> 
+<div class="card-body row no-gutters align-items-center fixed-center">
+	
+        <li class="letter" value="Beef Stew">Beef Stew</li>  
+        <li class="letter">Cheese Grits</li>  
+        <li class="letter">Beef Stroganoff</li>  
+        <li class="letter clearl">Pork Chops</li>  
+        <li class="letter">Onion Soup</li>  
+        <li class="letter">Mac N' Cheese</li> 
+      
+        <li class="letter clearl">Spinach Lasagna</li>  
+        <li class="letter ">Chicken Pot Pie</li>
+
+    </ul>     
+         
+ <br>
+ <br>
+
+<label for="order"><h2 style= "color:#EAEAEA"><u>Order Details</u></h2></label>
+<br>
+<textarea readonly class="fixed-right" id="order" name="order" rows="10" cols="80">
+</textarea>
+	
+ <br><br>
+
+
+<input type="submit" name="clear-order" class="btn btn-info btn-md" value="Clear Order" onclick="./home/">
+
+<input type="submit" name="delete-last" class="btn btn-info btn-md" value="Delete Last">
+
+<input type="submit" name="checkout" class="btn btn-info btn-md" value="Checkout" onclick="./checkout/">
+</div>
+</form>
+
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>  
+<script type="text/javascript" src="js/keyboard.js"></script>
+{% endblock content %}
+
+
+	<title>ACRMS - Home</title>	
+</head>
+  <body style = "Background-image: url('https://images.assetsdelivery.com/compings_v2/spaxia/spaxia1703/spaxia170300094.jpg');">
+
+
+	<header class="site-header">
+      <nav class="navbar navbar-dark bg-steel fixed-top">
+        <div class="container">
+          <a class="navbar-brand mr-4" href="{% url 'ACRMS-Home' %}">ACRMS</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+             <span class="navbar-toggler-icon"></span>
+           </button>
+              <div  class="collapse navbar-collapse" id="navbarToggle">
+              <div class="navbar-nav mr-right">
+              <a class="nav-item nav-link" href="{% url 'ACRMS-Home' %}">User Manual</a>
+              <a class="nav-item nav-link" href="{% url 'ACRMS-Login' %}">Logout</a>
+             </div>
+        <!-- Navbar Right Side -->
+             
+             </a>
+            </div>
+           </div>
+       </div>
+   </nav>
+  </header>
+
+	
+	<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
+
+
