@@ -89,13 +89,25 @@ div.fixed {
   </head>
   <body>
   	<br><br><br>
+
+
+
+
   	<div class="fixed-center">
 <div class="container">
     <form action="">
         <div class="col-lg-9">
         <label for="order"><h2 style= "color:#EAEAEA">Inventory</h2></label>
             <div class="row">
-                <textarea readonly name="" class="form-control" id=""rows="10"></textarea>
+                <textarea readonly name="" class="form-control" id=""rows="10">
+                  {% for Inventory in show_inventory %}
+               
+    {{ Inventory.item_name }} {{ Inventory.in_stock }}
+  
+    {% endfor %}
+                  
+                </textarea>
+                  
             </div>
         </div>
        
@@ -124,9 +136,8 @@ div.fixed {
       </div>
 
     </div>
-
-
-
+<div>
+    
 
     <script>
       function openForm() {
@@ -152,7 +163,7 @@ div.fixed {
 
 <link rel="stylesheet" type="text/css" href="{% static 'mis446/home.css' %}">
 
-<link rel="stylesheet" type="text/css" href="{% static 'mis446/popup.css' %}">
+
 
 {% block content %}
 
@@ -165,17 +176,7 @@ div.fixed {
 </head>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 
-<br>
-
-
-
-   
-
-
-	
- <br><br>
-
-
+<br><br><br>
 
 </div>
 
@@ -198,9 +199,20 @@ div.fixed {
            </button>
               <div  class="collapse navbar-collapse" id="navbarToggle">
               <div class="navbar-nav mr-right">
-             <a class="nav-item nav-link" href="{% url 'ACRMS-Home' %}">Home</a>
-              <a class="nav-item nav-link" href="{% url 'ACRMS-Home' %}">User Manual</a>
-              <a class="nav-item nav-link" href="{% url 'ACRMS-Login' %}">Logout</a>
+             {% if user.is_superuser %}
+                <a class="nav-item nav-link" href="{% url 'ACRMS-Home' %}">Home</a>
+              <a class="nav-item nav-link" href="{% url 'Edit Inventory' %}">Edit Inventory</a>
+                <a class="nav-item nav-link" href="{% url 'Edit Suppliers' %}">Edit Suppliers</a>
+              <a class="nav-item nav-link" href="{% url 'Edit Menu' %}">Edit Menu</a>
+                 <a class="nav-item nav-link" href="{% url 'User Manual' %}">User Manual</a>
+                <a class="nav-item nav-link" href="{% url 'Admin Manual' %}">Admin User Manual</a>
+              <a class="nav-item nav-link" href="{% url 'ACRMS-Logout' %}">Logout</a>
+
+              {% else %}
+               <a class="nav-item nav-link" href="{% url 'ACRMS-Home' %}">Home</a>
+              <a class="nav-item nav-link" href="{% url 'User Manual' %}">User Manual</a>
+              <a class="nav-item nav-link" href="{% url 'ACRMS-Logout' %}">Logout</a>
+              {% endif %}
              </div>
         <!-- Navbar Right Side -->
              
@@ -211,6 +223,11 @@ div.fixed {
    </nav>
   </header>
 
+
+
+                
+                
+</div>
 	
 	<!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

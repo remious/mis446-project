@@ -1,4 +1,5 @@
 {% load static %}
+{% csrf_token %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -61,7 +62,8 @@
 
 <input type="submit" name="delete-last" class="btn btn-info btn-md" value="Delete Last">
 
-<input type="submit" name="checkout" class="btn btn-info btn-md" value="Checkout" onclick="./checkout/">
+
+<input type="submit" name="checkout" class="btn btn-info btn-md" value="Checkout" onclick="checkout/">
 </div>
 </form>
 
@@ -85,8 +87,18 @@
            </button>
               <div  class="collapse navbar-collapse" id="navbarToggle">
               <div class="navbar-nav mr-right">
-              <a class="nav-item nav-link" href="{% url 'ACRMS-Home' %}">User Manual</a>
-              <a class="nav-item nav-link" href="{% url 'ACRMS-Login' %}">Logout</a>
+                {% if user.is_superuser %}
+              <a class="nav-item nav-link" href="{% url 'Edit Inventory' %}">Edit Inventory</a>
+                <a class="nav-item nav-link" href="{% url 'Edit Suppliers' %}">Edit Suppliers</a>
+              <a class="nav-item nav-link" href="{% url 'Edit Menu' %}">Edit Menu</a>
+                  <a class="nav-item nav-link" href="{% url 'User Manual' %}">User Manual</a>
+                <a class="nav-item nav-link" href="{% url 'Admin Manual' %}">Admin User Manual</a>
+              <a class="nav-item nav-link" href="{% url 'ACRMS-Logout' %}">Logout</a>
+
+              {% else %}
+              <a class="nav-item nav-link" href="{% url 'User Manual' %}">User Manual</a>
+              <a class="nav-item nav-link" href="{% url 'ACRMS-Logout' %}">Logout</a>
+              {% endif %}
              </div>
         <!-- Navbar Right Side -->
              

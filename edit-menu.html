@@ -96,7 +96,14 @@ div.fixed {
         <div class="col-lg-9">
         <label for="order"><h2 style= "color:#EAEAEA">Menu</h2></label>
             <div class="row">
-                <textarea readonly name="" class="form-control" id=""rows="10"></textarea>
+                <textarea readonly name="" class="form-control" id=""rows="10">
+                  {% for Menu in show_menu %}
+               
+                  {{ Menu.item_name }} {{ Menu.item_price }}
+    
+                  {% endfor %}
+
+                </textarea>
             </div>
         </div>
        
@@ -123,17 +130,17 @@ div.fixed {
           <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
         </form>
       </div>
-
+<!--
        <button class="open-button" onclick="openForm()"><strong>Change Price</strong></button>
     </div>
     <div class="login-popup">
       <div class="form-popup" id="popupForm">
-        <form action="/action_page.php" class="form-container">
+        <form  class="form-container">
           <h2>Enter New Item Information</h2>
           <label for="email">
           <strong>Item Name</strong>
           </label>
-          <input type="text" id="menu-name" placeholder="Menu Item Name" name="menu-name" required>
+
           <label for="psw">
           <strong>Price</strong>
           </label>
@@ -144,9 +151,21 @@ div.fixed {
       </div>
 
     </div>
+  -->
 
 
+<h2 style= "color:#EAEAEA">Change Price</h2>
 
+<form>
+          <select id="menulist">
+            {% for Menu in show_menu %}
+
+            <option value = "{{ Menu.id }}">{{ Menu.item_name }}</option>
+            {% endfor %}
+          </select>
+
+          <input type="text" placeholder="Enter New Price">
+        </form>
 
     <script>
       function openForm() {
@@ -218,9 +237,20 @@ div.fixed {
            </button>
               <div  class="collapse navbar-collapse" id="navbarToggle">
               <div class="navbar-nav mr-right">
-             <a class="nav-item nav-link" href="{% url 'ACRMS-Home' %}">Home</a>
-              <a class="nav-item nav-link" href="{% url 'ACRMS-Home' %}">User Manual</a>
-              <a class="nav-item nav-link" href="{% url 'ACRMS-Login' %}">Logout</a>
+             {% if user.is_superuser %}
+                <a class="nav-item nav-link" href="{% url 'ACRMS-Home' %}">Home</a>
+              <a class="nav-item nav-link" href="{% url 'Edit Inventory' %}">Edit Inventory</a>
+                <a class="nav-item nav-link" href="{% url 'Edit Suppliers' %}">Edit Suppliers</a>
+              <a class="nav-item nav-link" href="{% url 'Edit Menu' %}">Edit Menu</a>
+                  <a class="nav-item nav-link" href="{% url 'User Manual' %}">User Manual</a>
+                <a class="nav-item nav-link" href="{% url 'Admin Manual' %}">Admin User Manual</a>
+              <a class="nav-item nav-link" href="{% url 'ACRMS-Logout' %}">Logout</a>
+
+              {% else %}
+               <a class="nav-item nav-link" href="{% url 'ACRMS-Home' %}">Home</a>
+              <a class="nav-item nav-link" href="{% url 'User Manual' %}">User Manual</a>
+              <a class="nav-item nav-link" href="{% url 'ACRMS-Logout' %}">Logout</a>
+              {% endif %}
              </div>
         <!-- Navbar Right Side -->
              

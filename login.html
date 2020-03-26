@@ -1,4 +1,5 @@
 {% load static %}
+{% csrf_token %}
 <head>
     <title>ACRMS-Login</title>
     </head>
@@ -27,10 +28,14 @@
                             </div>
                             <div class="form-group">
                                
-                                <input type="submit" name="submit" class="btn btn-info btn-md" value="Submit" formaction="./home/">
+                                <input type="submit" name="submit" class="btn btn-info btn-md" value="Submit">
                             </div>
                             
                         </form>
+                        <div class="border-top pt-3">
+<small class="text-muted">Need an account? <a class="ml-2" href="{% url 'Register' %}">Sign Up</a>
+</small>
+</div>
                     </div>
                 </div>
             </div>

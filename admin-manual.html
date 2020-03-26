@@ -2,6 +2,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<h2 style= "color:#EAEAEA">Insert admin manual here when we have it</h2>
+
   <!--JAVA FOR NAVBAR-->
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -32,12 +34,12 @@
            </button>
               <div  class="collapse navbar-collapse" id="navbarToggle">
               <div class="navbar-nav mr-right">
-              {% if user.is_superuser %}
+               {% if user.is_superuser %}
                 <a class="nav-item nav-link" href="{% url 'ACRMS-Home' %}">Home</a>
               <a class="nav-item nav-link" href="{% url 'Edit Inventory' %}">Edit Inventory</a>
                 <a class="nav-item nav-link" href="{% url 'Edit Suppliers' %}">Edit Suppliers</a>
               <a class="nav-item nav-link" href="{% url 'Edit Menu' %}">Edit Menu</a>
-                <a class="nav-item nav-link" href="{% url 'User Manual' %}">User Manual</a>
+                 <a class="nav-item nav-link" href="{% url 'User Manual' %}">User Manual</a>
                 <a class="nav-item nav-link" href="{% url 'Admin Manual' %}">Admin User Manual</a>
               <a class="nav-item nav-link" href="{% url 'ACRMS-Logout' %}">Logout</a>
 
@@ -55,7 +57,6 @@
        </div>
    </nav>
   </header>
-
 
  </body>
 </html>
