@@ -1,0 +1,27 @@
+
+
+
+
+<form method="POST" style= "color:#EAEAEA">
+{% csrf_token %}
+<fieldset class="form-group">
+<legend style= "color:#EAEAEA" class="border-bottom mb-4">Join Today</legend>
+{{ form.as_p }}
+</fieldset>
+<div class="form-group">
+<button class= "btn btn-outline-info" type="submit">Sign Up</button>
+</div>
+</form>
+<div class="border-top pt-3">
+<small class="text-muted" style= "color:#EAEAEA">Already have an account? <a style= "color:#EAEAEA "class="ml-2" href="{% url 'ACRMS-Login' %}">Sign In</a>
+</small>
+</div>
+</div>
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-{{ message.tags }}">
+	{{ message }}
+</div>
+{% endfor %}
+{% endif %}
+ <body style = "Background-image: url('https://images.assetsdelivery.com/compings_v2/spaxia/spaxia1703/spaxia170300094.jpg');">
